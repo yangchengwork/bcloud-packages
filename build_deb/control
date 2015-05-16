@@ -1,5 +1,5 @@
 Package: bcloud
-Version: 3.7.1-1
+Version: 3.7.1-2
 Architecture: all
 Maintainer: LiuLang<gsushzhsosgsu@gmail.com>
 Installed-Size: 872
@@ -13,6 +13,7 @@ Depends: gir1.2-gnomekeyring-1.0|python3-pykde4,
          python3-crypto,
          python3-dbus,
          python3-gi,
+		 python3-pyinotify,
          python3-keyring,
          python3-lxml
 Section: gnome
