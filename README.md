@@ -42,19 +42,18 @@ Debian 7里面有一个软件包需要手动升级到较新版, `# pip3 install 
 
 
 #Fedora 安装指南
-如果你使用 dnf 并安装了 dnf-plugins-core, 直接运行:
+执行以下命令安装 bcloud, 目前支持 fc19, fc20, fc21, fc22 :
 
-```
-# dnf copr enable wangjiezhe/bcloud
+```sh
+# yum install dnf-plugins-core
+# dnf copr enable mosquito/myrepo
 # dnf install bcloud
 ```
 
-即可.
-
-或者直接到 <http://copr.fedoraproject.org/coprs/wangjiezhe/bcloud/> 下载对应的
+或者直接到 [myrepo](http://copr.fedoraproject.org/coprs/mosquito/myrepo/) 下载对应的
 repo 文件放到 /etc/yum.repos.d/ 中, 然后运行
 
-```
+```sh
 # yum install bcloud
 ```
 
@@ -70,14 +69,16 @@ RHEL / CentOS 7 使用如下命令安装 bcloud:
 ```
 
 #OpenSuSE 安装指南
-**BCloud现在在OpenSuSE中文源中也可用啦。若您添加了`opensuse_zh`源，可直接在源中搜索`bcloud`，跳过下面的步骤**
+**BCloud现在在OpenSuSE中文源中也可用啦。若您添加了`opensuse_zh`源，可直接在源中搜索`bcloud`，跳过下面的步骤(版本可能更老)**
 
-+ [1 Click Install for 13.1](http://software.opensuse.org/ymp/home:qgymib:bcloud/openSUSE_13.1/bcloud.ymp?base=openSUSE%3A13.1&query=bcloud)
-+ [1 Click Install for Tumbleweed](http://software.opensuse.org/ymp/home:qgymib:bcloud/openSUSE_Tumbleweed/bcloud.ymp?base=openSUSE%3A13.1&query=bcloud)
-+ [1 Click Install for Factory](http://software.opensuse.org/ymp/home:qgymib:bcloud/openSUSE_Factory/bcloud.ymp?base=openSUSE%3AFactory&query=bcloud)
++ [1 Click Install for 13.1](http://software.opensuse.org/ymp/home:qgymib/openSUSE_13.1/bcloud.ymp?base=openSUSE%3A13.1&query=bcloud)
++ [1 Click Install for 13.2](http://software.opensuse.org/ymp/home:qgymib/openSUSE_13.2/bcloud.ymp?base=openSUSE%3A13.2&query=bcloud)
++ [1 Click Install for Tumbleweed](http://software.opensuse.org/ymp/home:qgymib/openSUSE_Tumbleweed/bcloud.ymp?base=openSUSE%3AFactory&query=bcloud)
++ [1 Click Install for Factory](http://software.opensuse.org/ymp/home:qgymib/openSUSE_Factory/bcloud.ymp?base=openSUSE%3AFactory&query=bcloud)
 + (不推荐)手动安装：请先安装`python3-keyring.suse.rpm`, 再安装`bcloud.suse.rpm`
 + **注意事项**:
     + 使用`1 Click Install`安装方式，您以后可以直接从包管理器获得最近更新
+    + Git repo中的rpm包对应的opensuse版本是13.1
 
 #Arch Linux 安装指南
 
@@ -100,22 +101,23 @@ $ sudo pacman -S bcloud
 仓库中, 有问题可联系[Liangzhaostrive@gmail.com](Liangzhaostrive@gmail.com).
 
 
-手动安装
-========
+#依赖关系
 如果需要手动安装的话, 也可以用`pip3`(ArchLinux里面是`pip`)来安装,
 比如: `# pip3 install bcloud`
 
-但要确保已经安装了以下依赖包:
+需要包含这些软件包:
 
-* python3-gi  Gtk3 的 python3 绑定, Fedora里面的名称是python3-gobject.
-* gir1.2-gtk-3.0, gtk3界面的gir动态绑定.
-* gnome-icon-theme-symbolic Gnome3 提供的一套按钮图标.
-* python3-keyring  这个模块是推荐安装的, 用于把帐户的密码存放到gnome-keyring或
-kwallet里面.
+* gir1.2-gtk-3.0
+* gir1.2-notify-0.7
+* gnome-icon-theme-symbolic Gnome3 提供的一套按钮图标
 * gnome-keyring或者kwalletmanager, 用于托管用户密码
-* python3-dbus  dbus的python3绑定.
-* python3-lxml 强大的XML解析器, 可以在[这里](https://pypi.python.org/pypi/lxml)下载.
-* python3-cssselect CSS3 属性选择器, 在[这里](https://pypi.python.org/pypi/cssselect).
-* python3-crypto  使用RSA算法加密用户密码.
-* gir1.2-notify 这个用于显示桌面消息通知.
-
+* libgtk-3.0
+* libnotifiy4
+* notification-daemon
+* python3-crypto  使用RSA算法加密用户密码
+* python3-cssselect CSS3 属性选择器, 在[这里](https://pypi.python.org/pypi/cssselect)
+* python3-dbus  dbus的python3绑定
+* python3-gi  Gtk3 的 python3 绑定
+* python3-keyring  这个模块是推荐安装的, 用于把帐户的密码存放到gnome-keyring或
+kwallet里面
+* python3-lxml 强大的XML解析器, 可以在[这里](https://pypi.python.org/pypi/lxml)下载
