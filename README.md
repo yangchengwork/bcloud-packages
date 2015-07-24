@@ -42,22 +42,14 @@ Debian 7里面有一个软件包需要手动升级到较新版, `# pip3 install 
 
 
 #Fedora 安装指南
-执行以下命令安装 bcloud, 目前支持 fc19, fc20, fc21, fc22 :
+添加 [FZUG源](https://github.com/FZUG/repo/wiki/FZUG) 后，执行以下命令安装 bcloud, 目前支持 fc21, fc22 :
 
 ```sh
-# yum install dnf-plugins-core
-# dnf copr enable mosquito/myrepo
 # dnf install bcloud
 ```
 
-或者直接到 [myrepo](http://copr.fedoraproject.org/coprs/mosquito/myrepo/) 下载对应的
-repo 文件放到 /etc/yum.repos.d/ 中, 然后运行
+打包脚本: [bcloud.spec](https://github.com/FZUG/repo/blob/master/rpms/SPECS/bcloud/bcloud.spec)
 
-```sh
-# yum install bcloud
-```
-
-打包脚本在 build\_rpm 里.
 
 #RHEL 7 安装指南
 RHEL / CentOS 7 使用如下命令安装 bcloud:
